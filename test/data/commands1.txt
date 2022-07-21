@@ -1,0 +1,2 @@
+Rover 1;1 2 N;LMLMLMLMM
+Rover 2;3 3 E;MMRMMRMRRM
