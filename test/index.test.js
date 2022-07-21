@@ -78,12 +78,12 @@ describe('Rover - Process instructions and move Rover', () => {
     assert.equal(Rover2.getDirection(), 'E')
   })
 })
-describe('RoverCommand - Deploy Rovers by Text File', () => {
+describe('Rover test using input file text', () => {
   it(`Throw TypeError on wrong initialization "new RoverCommand()"`, () => {
     assert.throws(() => new RoverCommand(1, 1, 'C'), TypeError)
   })
-  it(`Deploy by configuration file`, async () => {
-    const RoverCommandMars = new RoverCommand(__dirname + '/data/commands1.txt')
+  it(`RoverCommand test using input file text`, async () => {
+    const RoverCommandMars = new RoverCommand(__dirname + '/data/comandos.txt')
     await RoverCommandMars.deploy()
     const rovers = RoverCommandMars.getRovers()
     assert.equal(typeof rovers, 'object')
@@ -121,7 +121,7 @@ describe('RoverCommand - Deploy Rovers by Text File', () => {
     assert.equal(rovers['Rover 2'].getCoordinates(), '3 3 E')
   })
   it(`Move Rovers'`, async () => {
-    const RoverCommandMars = new RoverCommand(__dirname + '/data/commands1.txt')
+    const RoverCommandMars = new RoverCommand(__dirname + '/data/comandos.txt')
     await RoverCommandMars.deploy()
     await RoverCommandMars.move()
 
@@ -130,7 +130,7 @@ describe('RoverCommand - Deploy Rovers by Text File', () => {
     assert.equal(rovers['Rover 2'].getCoordinates(), '5 1 E')
   })
   it(`_parse()'`, () => {
-    const RoverCommandMars = new RoverCommand(__dirname + '/data/commands1.txt')
+    const RoverCommandMars = new RoverCommand(__dirname + '/data/comandos.txt')
     assert.equal(RoverCommandMars.instructions[0].name, 'Rover 1')
     assert.equal(RoverCommandMars.instructions[0].deployZone[0], 1)
     assert.equal(RoverCommandMars.instructions[0].deployZone[1], 2)
