@@ -5,7 +5,7 @@ const {Rover, RoverCommand} = require('../src/index')
 const assert = require('assert')
 
 describe('Rover - Deploy Rover', () => {
-  it(`Throw TypeError on wrong initialization "new Rover()"`, () => {
+  it(`Throw TypeError on initialization "new Rover()"`, () => {
     assert.throws(() => new Rover(), TypeError)
   })
   it(`Throw TypeError on wrong initialization "new Rover('')", "new Rover({})", "new Rover([])"`, () => {
